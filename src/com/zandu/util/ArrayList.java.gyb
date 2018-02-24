@@ -1,0 +1,44 @@
+package com.zandu.util;
+
+%{
+
+def wrapperClass(primitive):
+	if primitive == 'int':
+		return 'Integer'
+	if primitive == 'char':
+		return 'Character'
+	return primitive.capitalize()
+		
+def defaultValue(primitive):
+	if primitive == 'boolean':
+		return 'false'
+	return wrapperClass(primitive) + '.MIN_VALUE'
+		
+PrimitiveTypeCapitalized = PrimitiveType.capitalize()
+WrapperClass = wrapperClass(PrimitiveType)
+DefaultValue = defaultValue(PrimitiveType)
+
+}%
+
+public class ${PrimitiveTypeCapitalized}ArrayList implements ${PrimitiveTypeCapitalized}List {
+	public boolean	add(${PrimitiveType} e){return false;}
+	public boolean	addAll(${PrimitiveTypeCapitalized}Collection c){return false;}
+	public void	clear(){}
+	public boolean	contains(${PrimitiveType} e){return false;}
+	public boolean	containsAll(${PrimitiveTypeCapitalized}Collection c){return false;}
+	public boolean	equals(Object o){return false;}
+	public int	hashCode(){return 0;}
+	public boolean	isEmpty(){return true;}
+	public boolean	remove(${PrimitiveType} e) {return false;}
+	public boolean	removeAll(${PrimitiveTypeCapitalized}Collection c){return false;}
+	public boolean	retainAll(${PrimitiveTypeCapitalized}Collection c){return false;}
+	public int	size(){return 0;}
+	public ${PrimitiveType}[] toArray(){return null;}
+	
+    public ${PrimitiveType} get(int index){return ${DefaultValue};}
+    public ${PrimitiveType} set(int index, ${PrimitiveType} e){return ${DefaultValue};}
+    public void add(int index, ${PrimitiveType} e) {}
+    public ${PrimitiveType} removeAt(int index) {return ${DefaultValue};}
+    public int indexOf(${PrimitiveType} e) {return -1;}
+    public int lastIndexOf(${PrimitiveType} e) {return -1;}
+}

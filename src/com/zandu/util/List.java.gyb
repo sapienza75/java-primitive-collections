@@ -1,0 +1,30 @@
+package com.zandu.util;
+
+%{
+
+PrimitiveTypeCapitalized = PrimitiveType.capitalize()
+
+}%
+
+public interface ${PrimitiveTypeCapitalized}List extends ${PrimitiveTypeCapitalized}Collection {
+	boolean	add(${PrimitiveType} e);
+	boolean	addAll(${PrimitiveTypeCapitalized}Collection c);
+	void	clear();
+	boolean	contains(${PrimitiveType} e);
+	boolean	containsAll(${PrimitiveTypeCapitalized}Collection c);
+	boolean	equals(Object o);
+	int	hashCode();
+	boolean	isEmpty();
+	boolean	remove(${PrimitiveType} e);
+	boolean	removeAll(${PrimitiveTypeCapitalized}Collection c);
+	boolean	retainAll(${PrimitiveTypeCapitalized}Collection c);
+	int	size();
+	${PrimitiveType}[] toArray();
+	
+    ${PrimitiveType} get(int index);
+    ${PrimitiveType} set(int index, ${PrimitiveType} e);
+    void add(int index, ${PrimitiveType} e);
+    ${PrimitiveType} removeAt(int index);
+    int indexOf(${PrimitiveType} e);
+    int lastIndexOf(${PrimitiveType} e);
+}
